@@ -1,5 +1,4 @@
 from app.llm import client
-import json
 from app.config import OLLAMA_MODEL
 from app.memory import Memory
 from app.prompts import SYSTEM_PROMPT
@@ -26,9 +25,8 @@ def chat(user_message: str):
 
     command = user_message.strip()
 
-    # ----------------------
     # Create Folder
-    # ----------------------
+
     if command.lower().startswith("create folder"):
         parts = command.split()
         folder_name = " ".join(parts[2:])
@@ -38,11 +36,11 @@ def chat(user_message: str):
         memory.add_assistant_message(result)
         return result
 
-    # ----------------------
+
     # Write File
     # Example:
     # Write file notes.txt Hello AI Engineer
-    # ----------------------
+
     elif command.lower().startswith("write file"):
 
         parts = command.split(maxsplit=3)
@@ -77,11 +75,10 @@ def chat(user_message: str):
 
         return result
 
-    # ----------------------
     # Read File
     # Example:
     # Read file notes.txt
-    # ----------------------
+
     elif command.lower().startswith("read file"):
 
         parts = command.split(maxsplit=2)
@@ -96,11 +93,10 @@ def chat(user_message: str):
         memory.add_assistant_message(result)
         return result
 
-    # ----------------------
     # List Files
     # Example:
     # List files Demo
-    # ----------------------
+
     elif command.lower().startswith("list files"):
 
         parts = command.split(maxsplit=2)
@@ -117,9 +113,8 @@ def chat(user_message: str):
         memory.add_assistant_message(result)
         return result
 
-    # ----------------------
+
     # Normal Chat
-    # ----------------------
 
     messages = [
         {
