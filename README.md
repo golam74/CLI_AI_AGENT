@@ -58,7 +58,7 @@ CLI_AI_AGENT/
 ## 1. Clone Repository
 
 ```bash
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/golam74/CLI_AI_AGENT
 
 cd CLI_AI_AGENT
 ```
